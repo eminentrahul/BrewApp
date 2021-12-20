@@ -21,8 +21,7 @@ class APIManager: ObservableObject {
                         do {
                             let nowPlayingMovieData = try JSONDecoder().decode(NowPlayingMovieData.self, from: data)
                             DispatchQueue.main.async {
-                                self.result = nowPlayingMovieData.results
-                                sortedResult = nowPlayingMovieData.results.sorted(by: {$0.vote_average > $1.vote_average})
+                                self.result = nowPlayingMovieData.results.sorted(by: {$0.vote_average > $1.vote_average})
                             }
                             
                         } catch {

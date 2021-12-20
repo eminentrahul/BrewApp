@@ -12,8 +12,6 @@ let nowPlayingURLString = "https://api.themoviedb.org/3/movie/now_playing?api_ke
 let posterBaseURL = "https://image.tmdb.org/t/p/w200"
 let backdropImageBaseURL = "https://image.tmdb.org/t/p/w342"
 
-var sortedResult: [Result] = [Result]()
-
 let popularMovieSampleData: Result = Result(id: 1, title: "Spider-Man: No Way Home",
                                 poster_path: "/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
                                 overview: "Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.",
