@@ -22,6 +22,7 @@ class APIManager: ObservableObject {
                             let nowPlayingMovieData = try JSONDecoder().decode(NowPlayingMovieData.self, from: data)
                             DispatchQueue.main.async {
                                 self.result = nowPlayingMovieData.results
+                                sortedResult = nowPlayingMovieData.results.sorted(by: {$0.vote_average > $1.vote_average})
                             }
                             
                         } catch {
@@ -33,6 +34,10 @@ class APIManager: ObservableObject {
             task.resume()
         }
     }
+    
+    func removeItem(for id: Int) {
+        result.removeAll(where: {$0.id == id})
+    }
 }
 
 struct NowPlayingMovieData: Decodable {
@@ -40,6 +45,7 @@ struct NowPlayingMovieData: Decodable {
 }
 
 struct Result: Decodable, Hashable {
+    let id: Int
     let title: String
     let poster_path: String
     let overview: String

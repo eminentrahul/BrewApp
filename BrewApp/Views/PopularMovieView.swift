@@ -13,7 +13,7 @@ struct PopularMovieView: View {
     
     var body: some View {
         ZStack {
-            AsyncImage(url: URL(string: image)!, scale: 0.9)
+            AsyncImage(url: URL(string: image)!, scale: 1.0)
                 .scaledToFill()
                 .cornerRadius(12)
             
@@ -28,8 +28,8 @@ struct PopularMovieView: View {
 
 struct PopularMovieView_Previews: PreviewProvider {
     static var previews: some View {
-        PopularMovieView(image: "image")
-            .previewLayout(.sizeThatFits)
-            .padding()
+        PopularMovieView(image: unpopularMovieSampleData.poster_path)
+            .previewLayout(.fixed(width: UIScreen.main.bounds.width, height: 250))
+
     }
 }

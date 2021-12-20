@@ -12,9 +12,9 @@ struct UnpopularMovieView: View {
     @State var unpopularMovieData: Result
     
     var body: some View {
-        HStack (spacing: 12) {
+        HStack (spacing: 8) {
             
-            AsyncImage(url: URL(string: "\(posterBaseURL)\(unpopularMovieData.poster_path)")!, scale: 1.0)
+            AsyncImage(url: URL(string: "\(posterBaseURL)\(unpopularMovieData.poster_path)")!, scale: 1.35)
                 .scaledToFit()
                 .cornerRadius(12)
                 
@@ -31,15 +31,13 @@ struct UnpopularMovieView: View {
                     .foregroundColor(.white)
                     .multilineTextAlignment(.leading)
             }
-        }
-        .padding()
-        
+        }        
     }
 }
 
 struct UnpopularMovieView_Previews: PreviewProvider {
     static var previews: some View {
-        UnpopularMovieView(unpopularMovieData: Result(title: "", poster_path: "", overview: "", vote_average: 0.0, backdrop_path: "", release_date: ""))
+        UnpopularMovieView(unpopularMovieData: unpopularMovieSampleData)
             .previewLayout(.sizeThatFits)
             .padding()
             .background(.secondary)
